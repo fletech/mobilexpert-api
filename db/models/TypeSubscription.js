@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     comment: "",
   };
 
-  const Type = sequelize.define("Type", cols, config);
+  const TypeSubscription = sequelize.define("TypeSubscription", cols, config);
 
-  return Type;
+  return TypeSubscription;
 };

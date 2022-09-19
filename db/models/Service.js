@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       field: "service_id",
     },
     service_name: {
-      type: DataTypes.STRING(45),
+      type: DataTypes.STRING(1000),
       allowNull: false,
       defaultValue: null,
       primaryKey: false,
@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       field: "service_name",
     },
     service_type: {
-      type: DataTypes.STRING(45),
+      type: DataTypes.STRING(1000),
       allowNull: false,
       defaultValue: null,
       primaryKey: false,
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     service_specs: {
       type: DataTypes.INTEGER(11),
-      allowNull: false,
+      allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
@@ -47,12 +47,21 @@ module.exports = (sequelize, DataTypes) => {
     },
     service_description: {
       type: DataTypes.STRING(1000),
-      allowNull: true,
+      allowNull: false,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
       field: "service_description",
+    },
+    service_status: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+      defaultValue: true,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "service_status",
     },
   };
 

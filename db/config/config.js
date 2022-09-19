@@ -1,5 +1,7 @@
 module.exports = {
   development: {
+    logging: false,
+    logQueryParameters: false,
     username: "root",
     password: "root",
     database: "mobilexpert",

@@ -145,6 +145,15 @@ module.exports = (sequelize, DataTypes) => {
       comment: null,
       field: "subscription_company",
     },
+    // subscription_type: {
+    //   type: DataTypes.INTEGER(11),
+    //   allowNull: false,
+    //   defaultValue: null,
+    //   primaryKey: false,
+    //   autoIncrement: false,
+    //   comment: null,
+    //   field: "subscription_type",
+    // },
 
     subscription_sms: {
       type: DataTypes.STRING(45),
@@ -155,16 +164,6 @@ module.exports = (sequelize, DataTypes) => {
       comment: null,
       field: "subscription_sms",
     },
-    subscription_sms: {
-      type: DataTypes.STRING(45),
-      allowNull: false,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "subscription_sms",
-    },
-
     subscription_status: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
@@ -206,7 +205,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "subscription_id",
       as: "binding",
     });
-    Subscription.belongsTo(models.Type, {
+    Subscription.belongsTo(models.TypeSubscription, {
       foreignKey: "subscription_type",
       as: "type",
     });

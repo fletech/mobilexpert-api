@@ -2,10 +2,45 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Welcome to <%= title %></h1>
+    <p><%= subtitle %></p>
+    <h2>Routes:</h2>
+
+    <div class="list">
+      <% for( let route = 0; route < routes.get.length; route++ ) { let
+      base_url= "http://localhost:3000"%>
+      <div>
+        <span class="pills get">:GET</span>
+        <a href="<%=`${base_url}${routes.get[route]}`%>" target="_blank"
+          ><%= routes.get[route] %></a
+        >
+      </div>
+      <% } %>
+    </div>
+
+    <div class="list">
+      <% for( let route = 0; route < routes.post.length; route++ ) { let
+      base_url= "http://localhost:3000"%>
+      <div>
+        <span class="pills post">:POST</span>
+        <a target="_blank"><%= routes.post[route] %></a>
+      </div>
+      <% } %>
+    </div>
+
+    <div class="list">
+      <% for( let route = 0; route < routes.put.length; route++ ) { let
+      base_url= "http://localhost:3000"%>
+      <div>
+        <span class="pills put">:PUT</span>
+        <a href="<%=`${base_url}${routes.put[route]}`%>" target="_blank"
+          ><%= routes.put[route] %></a
+        >
+      </div>
+      <% } %>
+    </div>
   </body>
 </html>

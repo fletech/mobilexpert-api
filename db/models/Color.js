@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: null,
       primaryKey: false,
+      unique: true,
       autoIncrement: false,
       comment: null,
       field: "color_name",

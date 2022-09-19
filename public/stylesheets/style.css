@@ -4,5 +4,35 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+
+div.list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 8px 0px;
+}
+div.list div {
+  margin: 6px 0px;
+}
+
+span.pills {
+  border-radius: 4px;
+  padding: 4px;
+  margin-right: 6px;
+}
+
+span.pills.get {
+  background-color: rgb(158, 235, 193);
+  color: green;
+}
+span.pills.post {
+  background-color: rgb(158, 168, 235);
+  color: rgb(5, 5, 173);
+}
+span.pills.put {
+  background-color: rgb(245, 157, 157);
+  color: rgb(205, 28, 28);
 }
