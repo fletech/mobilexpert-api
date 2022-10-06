@@ -1,4 +1,13 @@
 module.exports = {
+  // development: {
+  //   logging: false,
+  //   logQueryParameters: false,
+  //   username: "283342",
+  //   password: "@MExpert2022!",
+  //   database: "staging-mexpert_db",
+  //   host: "mysql-staging-mexpert.alwaysdata.net",
+  //   dialect: "mysql",
+  // },
   development: {
     logging: false,
     logQueryParameters: false,
@@ -18,10 +27,12 @@ module.exports = {
     port: 8889,
   },
   production: {
-    username: "root",
-    password: null,
-    database: "database_production",
-    host: "127.0.0.1",
+    logging: false,
+    logQueryParameters: false,
+    username: "283342",
+    password: "@MExpert2022!",
+    database: "staging-mexpert_db",
+    host: "mysql-staging-mexpert.alwaysdata.net",
     dialect: "mysql",
   },
 };

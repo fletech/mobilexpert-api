@@ -14,6 +14,10 @@ const auxiliarController = {
     const COMPANIES = await db.Company.findAll({});
     res.status(200).json(COMPANIES);
   },
+  async getInstallments(req, res, next) {
+    const INSTALLMENTS = await db.Installment.findAll({});
+    res.status(200).json(INSTALLMENTS);
+  },
   async getServices(req, res, next) {
     const SERVICES = await db.Service.findAll({});
     res.status(200).json(SERVICES);

@@ -127,15 +127,7 @@ module.exports = (sequelize, DataTypes) => {
       comment: null,
       field: "subscription_roaming",
     },
-    subscription_other_info: {
-      type: DataTypes.INTEGER(11),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "subscription_other_info",
-    },
+
     subscription_company: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
@@ -145,15 +137,16 @@ module.exports = (sequelize, DataTypes) => {
       comment: null,
       field: "subscription_company",
     },
-    // subscription_type: {
-    //   type: DataTypes.INTEGER(11),
-    //   allowNull: false,
-    //   defaultValue: null,
-    //   primaryKey: false,
-    //   autoIncrement: false,
-    //   comment: null,
-    //   field: "subscription_type",
-    // },
+
+    subscription_type: {
+      type: DataTypes.INTEGER(11),
+      allowNull: false,
+      defaultValue: null,
+      primaryKey: false,
+      autoIncrement: false,
+      comment: null,
+      field: "subscription_type",
+    },
 
     subscription_sms: {
       type: DataTypes.STRING(45),
@@ -200,6 +193,10 @@ module.exports = (sequelize, DataTypes) => {
     Subscription.belongsTo(models.SpecSubscription, {
       foreignKey: "subscription_specs",
       as: "specs",
+    });
+    Subscription.belongsTo(models.OtherInfoSubscription, {
+      foreignKey: "subscription_id",
+      as: "otherInfo",
     });
     Subscription.belongsTo(models.Binding, {
       foreignKey: "subscription_id",

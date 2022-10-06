@@ -1,76 +1,68 @@
 module.exports = (sequelize, DataTypes) => {
   const cols = {
-    mobile_id: {
+    tablet_id: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       defaultValue: null,
       primaryKey: true,
       autoIncrement: true,
       comment: null,
-      field: "mobile_id",
+      field: "tablet_id",
     },
-    mobile_name: {
+    tablet_name: {
       type: DataTypes.STRING(1000),
       allowNull: false,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "mobile_name",
+      field: "tablet_name",
     },
-    mobile_size: {
+    tablet_size: {
       type: DataTypes.STRING(1000),
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "mobile_size",
+      field: "tablet_size",
     },
-    mobile_weight: {
+    tablet_weight: {
       type: DataTypes.STRING(1000),
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "mobile_weight",
+      field: "tablet_weight",
     },
-    mobile_specs: {
+    tablet_specs: {
       type: DataTypes.STRING(1000),
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "mobile_specs",
+      field: "tablet_specs",
     },
-    mobile_description: {
+    tablet_description: {
       type: DataTypes.TEXT,
       allowNull: true,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "mobile_description",
+      field: "tablet_description",
     },
-    mobile_images: {
-      type: DataTypes.STRING(1000),
-      allowNull: true,
-      defaultValue: null,
-      primaryKey: false,
-      autoIncrement: false,
-      comment: null,
-      field: "mobile_images",
-    },
-    mobile_brand: {
+
+    tablet_brand: {
       type: DataTypes.INTEGER(11),
       allowNull: false,
       defaultValue: null,
       primaryKey: false,
       autoIncrement: false,
       comment: null,
-      field: "mobile_brand",
+      field: "tablet_brand",
     },
     status: {
       type: DataTypes.BOOLEAN,
@@ -83,7 +75,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   };
   const config = {
-    tableName: "mobiles",
+    tableName: "tablets",
     timestamps: true,
     underscored: false,
     createdAt: "createdAt",
@@ -91,27 +83,27 @@ module.exports = (sequelize, DataTypes) => {
     deletedAt: false,
     comment: "",
   };
-  const Mobile = sequelize.define("Mobile", cols, config);
+  const Tablet = sequelize.define("Tablet", cols, config);
 
-  Mobile.associate = function (models) {
-    Mobile.belongsToMany(models.Color, {
+  Tablet.associate = function (models) {
+    Tablet.belongsToMany(models.Color, {
       as: "colors",
-      through: "mobile_color",
-      foreignKey: "mobile_id",
+      through: "tablet_color",
+      foreignKey: "tablet_id",
       timestamps: false,
     });
 
-    Mobile.belongsToMany(models.Storage, {
+    Tablet.belongsToMany(models.Storage, {
       as: "storages",
-      through: "mobile_storage",
-      foreignKey: "mobile_id",
+      through: "tablet_storage",
+      foreignKey: "tablet_id",
       timestamps: false,
     });
 
-    Mobile.belongsTo(models.Brand, {
-      foreignKey: "mobile_brand",
+    Tablet.belongsTo(models.Brand, {
+      foreignKey: "tablet_brand",
       as: "brand",
     });
   };
-  return Mobile;
+  return Tablet;
 };

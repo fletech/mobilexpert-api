@@ -6,6 +6,7 @@ const auxiliarController = require("../controllers/auxiliarController.js");
 router.get("/brands", auxiliarController.getBrands);
 router.get("/colors", auxiliarController.getColors);
 router.get("/companies", auxiliarController.getCompanies);
+router.get("/installments", auxiliarController.getInstallments);
 router.get("/services", auxiliarController.getServices);
 router.get("/storages", auxiliarController.getStorages);
 router.get("/storages/:id", auxiliarController.getOneStorage);

@@ -35,6 +35,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "color_id",
       timestamps: false,
     });
+    Color.belongsToMany(models.Tablet, {
+      as: "tablets",
+      through: "tablet_color",
+      foreignKey: "color_id",
+      timestamps: false,
+    });
   };
 
   return Color;

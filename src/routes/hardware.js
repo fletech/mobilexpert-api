@@ -1,11 +1,25 @@
 const express = require("express");
 const router = express.Router();
-const hardwareController = require("../controllers/hardwareController.js");
+const tabletController = require("../controllers/tabletController.js");
+const mobileController = require("../controllers/mobileController.js");
 
-router.get("/all-mobiles", hardwareController.getAllMobiles);
+////////GET
+//Mobile
+router.get("/all-mobiles", mobileController.getAllMobiles);
 router.get(
   "/all-mobile-subscription",
-  hardwareController.getAllMobileSubscription
+  mobileController.getAllMobileSubscription
 );
-
+//Tablet
+router.get("/all-tablets", tabletController.getAllTablets);
+router.get(
+  "/all-tablet-subscription",
+  tabletController.getAllTabletSubscription
+);
+////////POST
+router.post("/mobile/create", mobileController.postMobile);
+router.post(
+  "/mobile-subscription/create",
+  mobileController.postMobileSubscription
+);
 module.exports = router;

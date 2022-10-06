@@ -51,6 +51,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: "storage_id",
       timestamps: false,
     });
+    Storage.belongsToMany(models.Tablet, {
+      as: "tablets",
+      through: "tablet_storage",
+      foreignKey: "storage_id",
+      timestamps: false,
+    });
   };
 
   return Storage;

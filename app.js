@@ -9,6 +9,7 @@ const indexRouter = require("./src/routes/index");
 const hardwareRouter = require("./src/routes/hardware");
 const subscriptionRouter = require("./src/routes/subscription");
 const auxiliarRouter = require("./src/routes/auxiliar");
+const searchRouter = require("./src/routes/search");
 
 const app = express();
 app.use(cors());
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/api/hardware", hardwareRouter);
 app.use("/api/subscriptions", subscriptionRouter);
+app.use("/api/searchs", searchRouter);
 app.use("/api/aux", auxiliarRouter);
 
 // catch 404 and forward to error handler
