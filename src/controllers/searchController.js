@@ -20,20 +20,25 @@ const searchController = {
     });
   },
   async postSearch(req, res, next) {
-    const TYPE = req.body.type;
-    const BODY = req.body.body;
+    const TYPE = req.body.search.type;
+    const BODY_SEARCH = req.body.search.body;
+    const BODY_USER = req.body.user;
+    console.log("BODY_SEARCH");
+    console.log(BODY_SEARCH);
+    console.log("BODY_USER");
+    console.log(BODY_USER);
     let body_content = {
       hardware: {
-        user_id: BODY.user.id,
-        user_name: BODY.user.name,
-        user_email: BODY.user.user_email,
-        search_content: BODY.search,
+        user_id: BODY_USER.id,
+        user_name: BODY_USER.name,
+        user_email: BODY_USER.user_email,
+        search_content: BODY_SEARCH,
       },
       subscription: {
-        user_id: BODY.user.id,
-        user_name: BODY.user.name,
-        user_email: BODY.user.user_email,
-        search_content: BODY.search,
+        user_id: BODY_USER.id,
+        user_name: BODY_USER.name,
+        user_email: BODY_USER.user_email,
+        search_content: BODY_SEARCH,
       },
     };
 
