@@ -20,15 +20,27 @@ const searchController = {
     });
   },
   async postSearch(req, res, next) {
-    const BODY = req.body;
-
-    try {
-      const SEARCH = await db.Search.create({
+    const TYPE = req.body.type;
+    const BODY = req.body.body;
+    let body_content = {
+      hardware: {
         user_id: BODY.user.id,
         user_name: BODY.user.name,
         user_email: BODY.user.user_email,
         search_content: BODY.search,
-      });
+      },
+      subscription: {
+        user_id: BODY.user.id,
+        user_name: BODY.user.name,
+        user_email: BODY.user.user_email,
+        search_content: BODY.search,
+      },
+    };
+
+    const CONTENT =
+      TYPE == "hardware" ? body_content.hardware : body_content.subscription;
+    try {
+      const SEARCH = await db.Search.create(CONTENT);
       res.status(201).json({ response: SEARCH });
     } catch {
       (err) => console.log(err);
